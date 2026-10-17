@@ -1,0 +1,11 @@
+class Solution:
+    def searchMatrix(self, matrix, target):
+        m, n = len(matrix), len(matrix[0])
+        l, r = 0, m*n-1
+        while l <= r:
+            mid = (l+r)//2
+            x = matrix[mid//n][mid%n]
+            if x == target: return True
+            if x < target: l = mid+1
+            else: r = mid-1
+        return False
